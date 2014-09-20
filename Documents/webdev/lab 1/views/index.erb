@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Alex's To-Do List</title>
+</head>
+<body>
+  <h1>Alex's To-do List</h1>
+  <ul>
+    <% @tasks.each do |task, date| %>
+    <li>
+      <%= task %>
+      <% unless blank? date %> <em> - <%= date %></em><% end %>
+    </li>
+    <% end %>
+  </ul>
+  <form action='/' method='POST'>
+    Add something to my to-do list:
+    <input type='text' name='task' placeholder='Alex has gotta do this' />
+    <input type='text' name='date' placeholder='by this date' />
+    <input type='submit' value='Abracadabra and add it!'>
+  </form>
+</body>
