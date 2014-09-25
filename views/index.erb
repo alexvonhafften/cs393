@@ -2,9 +2,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Alex's To-Do List</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h1>Alex's To-do List</h1>
+  <h1>TO DO LIST</h1>
   <ul>
     <% @tasks.each do |task, date| %>
     <li>
@@ -14,9 +15,9 @@
     <% end %>
   </ul>
   <form action='/' method='POST'>
-    Add something to my to-do list:
-    <input type='text' name='task' placeholder='Alex has gotta do this' />
-    <input type='text' name='date' placeholder='by this date' />
-    <input type='submit' value='Abracadabra and add it!'>
+    Add item to list:
+    <input type='text' name='task' placeholder='Item' />
+    <input type='text' name='date' placeholder='Date [optional]' />
+    <input type='submit' value='Add'>
   </form>
 </body>
