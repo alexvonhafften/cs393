@@ -7,10 +7,17 @@ get '/' do
 	file_contents = File.read('todo.txt')
 	lines = file_contents.split("\n")
 	@tasks = []
+	@undated_tasks = []
+	@dated_tasks = []
 	lines.each do |line|
 		task, date = line.split("-")
-		@tasks << [task, date]
+		unless blank? date
+			@dated_tasks << [task, date]
+		else
+			@undated_tasks << [task, date]
+		end
 	end
+	@tasks = @dated_tasks.push(*@undated_tasks)
 	erb :index
 end
 
