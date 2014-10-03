@@ -5,19 +5,19 @@
   <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h1>TO DO LIST</h1>
+  <h1>Alex's To Do List</h1>
   <ul>
-    <% @tasks.each do |task, date| %>
+    <% @task.each do |task| %>
     <li>
-      <%= task %>
-      <% unless blank? date %> <em> - <%= date %></em><% end %>
+      <%= task.description %>
+      <% unless blank? task.due_date %> <em> - <%= task.due_date %></em><% end %>
     </li>
     <% end %>
   </ul>
   <form action='/' method='POST'>
     Add item to list:
-    <input type='text' name='task' placeholder='Item' />
-    <input type='text' name='date' placeholder='Date [optional]' />
+    <input type='text' name='description' placeholder='Item' />
+    <input type='text' name='due_date' placeholder='Date [yyyy/mm/dd]' />
     <input type='submit' value='Add'>
   </form>
 </body>
