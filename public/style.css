@@ -24,6 +24,7 @@ ul {
   left: 8px;
   top: 8px;
   bottom: 8px;
+  list-style-type: none;
 }
 
 form {

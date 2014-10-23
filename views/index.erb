@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Alex's To-Do List</title>
@@ -9,6 +10,9 @@
   <ul>
     <% @task.each do |task| %>
     <li>
+      <a href='/delete/<%= task.id %>'>
+        <label>[x]</label>
+      </a>
       <%= task.description %>
       <% unless blank? task.due_date %> <em> - <%= task.due_date %></em><% end %>
     </li>
