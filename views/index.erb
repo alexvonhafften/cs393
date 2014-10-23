@@ -11,7 +11,7 @@
     <% @task.each do |task| %>
     <li>
       <a href='/delete/<%= task.id %>'>
-        <label>[x]</label>
+        <label>Done</label>
       </a>
       <%= task.description %>
       <% unless blank? task.due_date %> <em> - <%= task.due_date %></em><% end %>
