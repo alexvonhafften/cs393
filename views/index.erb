@@ -6,7 +6,7 @@
   <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 <body>
-  <h1>Alex's To Do List</h1>
+  <h1>To Do List App</h1>
   <ul>
     <% @task.each do |task| %>
     <li>
@@ -18,7 +18,7 @@
     </li>
     <% end %>
   </ul>
-  <form action='/' method='POST'>
+  <form action='<%= @user.id %>/new_item' method='POST'>
     Add item to list:
     <input type='text' name='description' placeholder='Item' />
     <input type='text' name='due_date' placeholder='Date [yyyy/mm/dd]' />

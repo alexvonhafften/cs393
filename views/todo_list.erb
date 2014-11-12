@@ -1,27 +1,29 @@
-<h1><%= @user.name %>'s To-do List</h1>
-<p>
-  <a href="/">back</a>
-</p>
-<div class="list-group">
-  <% @tasks.each do |task| %>
-  <div class="list-group-item">
-    <a href='/delete_item/<%= task.id %>' class="btn btn-sm btn-default complete"><span class="glyphicon glyphicon-ok"> </span></a>
-    <%= task.description %>
-    <% unless blank? task.due_date %> <span class="badge"><span class="glyphicon glyphicon-calendar"></span><%= task.due_date %></span><% end %>
-  </div>
-  <% end %>
-</div>
-<div class="panel">
-  <div class="panel-body">
-    <h4 class="list-group-item-heading">New Task:</h4>
-    <form class="form-inline" action='/<%= @user.id %>/new_item' method='POST'>
-      <div class="form-group">
-        <input class="form-control" type='text' name='task' placeholder='task content' />
-      </div>
-      <div class="form-group">
-        <input class="form-control" type='text' name='date' placeholder='due date' />
-      </div>
-      <button type='submit' class="btn btn-primary">Save</button>
-    </form>
-  </div>
-</div>
+<head>
+  <meta charset="UTF-8">
+  <title><%= @user.name %>'s To-Do List</title>
+  <link rel='stylesheet' type='text/css' href='style.css'>
+</head>
+<body>
+  <h1><%= @user.name %>'s To-do List</h1>
+  <p>
+    <a href="/">back</a>
+  </p>
+  <ul>
+    <% @tasks.each do |task| %>
+    <li>
+      <a href='/delete_item/<%= task.id %>'>
+        <label>Done</label>
+      </a>
+      <%= task.description %>
+      <%= task.id %>
+      <% unless blank? task.due_date %> <em> - <%= task.due_date %></em><% end %>
+    </li>
+    <% end %>
+  </ul>
+  <form action='/<%= @user.id %>/new_item' method='POST'>
+    Add item to list:
+    <input type='text' name='description' placeholder='Item' />
+    <input type='text' name='due_date' placeholder='Date [yyyy/mm/dd]' />
+    <input type='submit' value='Add'>
+  </form>
+</body>
