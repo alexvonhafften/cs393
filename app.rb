@@ -42,10 +42,9 @@ post '/:user/new_item' do
 end
 
 get '/delete_item/:item' do
-	@todo_item = TodoItem.find(params[:item])
-	@user = @todo_item.user
+	@todo_item = TodoItem.find_by(id: params[:item])
 	@todo_item.destroy
-	redirect '/#{@user.id}'
+	redirect '/'
 end
 
 helpers do

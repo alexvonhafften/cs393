@@ -15,7 +15,6 @@
         <label>Done</label>
       </a>
       <%= task.description %>
-      <%= task.id %>
       <% unless blank? task.due_date %> <em> - <%= task.due_date %></em><% end %>
     </li>
     <% end %>
